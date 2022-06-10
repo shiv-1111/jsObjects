@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random quote generator</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            margin: 0;
+            text-align: center;
+            background-color: #333;
+        }
+
+        h1{
+            color: rgb(79, 139, 18);
+        }
+        
+        #container {
+            width: 600px;
+            margin: 15px auto;
+            padding: 15px;
+            border: #333 solid 1px;
+            background-color: bisque;
+        }
+
+        #quote {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        #author {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        button{
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media screen  and (max-width: 760px) {
+            #container {
+                width: 100%;
+            }
+            }
+
+            
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Get your daily quote</h1>
+        <div id="quote-container">
+            <p id="quote"></p>
+            <p id="author"></p>
+        </div>
+        <div id="button-container">
+            <!-- onclick calls the getQuote function -->
+            <button id="getQuote" onclick="generator()">Get quote</button>
+        </div>
+    </div>
+    <script>
+        // array of quotes
+        const quotes = [{
+                quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+                author: "Nelson Mandela"
+            },
+            {
+                quote: "The way to get started is to quit talking and begin doing.",
+                author: "Walt Disney"
+            },
+            {
+                quote: "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "If life were predictable it would cease to be life, and be without flavor.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                quote: "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
+                author: "Oprah Winfrey"
+            },
+            {
+                quote: "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
+                author: "James Cameron"
+            },
+            {
+                quote: "Life is what happens when you're busy making other plans.",
+                author: "John Lennon"
+            },
+            {
+                quote: "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+                author: "Mother Teresa"
+            },
+            {
+                quote: "When you reach the end of your rope, tie a knot in it and hang on.",
+                author: "Franklin D. Roosevelt"
+            },
+            {
+                quote: "Always remember that you are absolutely unique. Just like everyone else.",
+                author: "Margaret Mead"}];
+
+        // function to get random quote
+        function generator() {
+            // math.random() returns a random number between 0 and 1
+            // math.floor() rounds the number down to the nearest integer which is the index of the quote
+            let randomNumber = Math.floor(Math.random() * quotes.length);
+            let randomQuote = quotes[randomNumber];
+            document.getElementById("quote").innerHTML = randomQuote.quote;
+            document.getElementById("author").innerHTML = "-"+" "+randomQuote.author;
+        };
+    </script>
+</body>
+
+</html>
